@@ -8,8 +8,8 @@
  * 
  * RETVALUES:
  *  success = VECTOR_OK
- *  error = any other ret code from the error_t enum*/
-error_t vector_init(vector_t **vector) {
+ *  error = any other ret code from the vector_error_t enum*/
+vector_error_t vector_init(vector_t **vector) {
     *vector = malloc(sizeof(vector_t));
     if(!vector) return VECTOR_MEMORY_FAILURE;
 
@@ -32,8 +32,8 @@ error_t vector_init(vector_t **vector) {
  *
  * RETVALUES:
  *  success = VECTOR_OK
- *  error = any other ret code from the error_t enum*/
-error_t vector_push(vector_t *vecPtr, int value) {
+ *  error = any other ret code from the vector_error_t enum*/
+vector_error_t vector_push(vector_t *vecPtr, int value) {
     if(!vecPtr) return VECTOR_NO_MEMORY;
     if(vecPtr->counter >= vecPtr->capacity) {
         vecPtr->capacity *= 2;
@@ -56,8 +56,8 @@ error_t vector_push(vector_t *vecPtr, int value) {
  *
  * RETVALUES:
  *  success = VECTOR_OK
- *  error = any other ret code from the error_t enum*/
-error_t vector_pushfront(vector_t *vecPtr, int value) {
+ *  error = any other ret code from the vector_error_t enum*/
+vector_error_t vector_pushfront(vector_t *vecPtr, int value) {
     if(!vecPtr) return VECTOR_NO_MEMORY;
     if(vecPtr->counter >= vecPtr->capacity) {   
         vecPtr->capacity *= 2;
@@ -83,8 +83,8 @@ error_t vector_pushfront(vector_t *vecPtr, int value) {
  *
  * RETVALUES:
  *  success = VECTOR_OK
- *  error = any other ret code from the error_t enum*/
-error_t vector_erase(vector_t *vecPtr, int value) {
+ *  error = any other ret code from the vector_error_t enum*/
+vector_error_t vector_erase(vector_t *vecPtr, int value) {
     if(!vecPtr) return VECTOR_NO_MEMORY;
     if(vecPtr->counter == 0) return VECTOR_EMPTY;
 
@@ -111,8 +111,8 @@ error_t vector_erase(vector_t *vecPtr, int value) {
  *
  * RETVALUES:
  *  success = VECTOR_OK
- *  error = any other ret code from the error_t enum*/
-error_t vector_erasefront(vector_t *vecPtr) {
+ *  error = any other ret code from the vector_error_t enum*/
+vector_error_t vector_erasefront(vector_t *vecPtr) {
     if(!vecPtr) return VECTOR_NO_MEMORY;
     if(vecPtr->counter == 0) return VECTOR_EMPTY;
 
@@ -129,8 +129,8 @@ error_t vector_erasefront(vector_t *vecPtr) {
  *
  * RETVALUES
  *  succes = VECTOR_OK
- *  error = eny other ret code from the error_t enum*/
-error_t vector_print(vector_t *vecPtr) {
+ *  error = eny other ret code from the vector_error_t enum*/
+vector_error_t vector_print(vector_t *vecPtr) {
     if(!vecPtr) return VECTOR_NO_MEMORY;
     if(vecPtr->counter == 0) return VECTOR_EMPTY;
     
@@ -157,8 +157,8 @@ error_t vector_print(vector_t *vecPtr) {
  *
  * RETVALUES:
  *  success = VECTOR_OK
- *  error = any other ret code on from the error_t enum*/
-error_t vector_destroy(vector_t **vector) {
+ *  error = any other ret code on from the vector_error_t enum*/
+vector_error_t vector_destroy(vector_t **vector) {
     if(!*vector) return VECTOR_NO_MEMORY;
     if((*vector)->counter == 0) {
         free(*vector);

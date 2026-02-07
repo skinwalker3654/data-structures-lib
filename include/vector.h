@@ -28,23 +28,23 @@ typedef struct vector_t {
  *
  * This enum contains every returing code that operations return 
  * after their call*/
-typedef enum error_t {
+typedef enum vector_error_t {
     VECTOR_MEMORY_FAILURE,    
     VECTOR_EMPTY,
     VECTOR_VALUE_NOT_FOUND,
     VECTOR_NO_MEMORY,
     VECTOR_OK,
-} error_t;
+} vector_error_t;
 
 /*+===================================================+/
  *+ OPERATIONS
  *+==================================================+*/
-error_t vector_init(vector_t **vector);
-error_t vector_push(vector_t *vecPtr,int value);
-error_t vector_pushfront(vector_t *vecPtr,int value);
-error_t vector_erase(vector_t *vecPtr,int value);
-error_t vector_erasefront(vector_t *vecPtr);
-error_t vector_print(vector_t *vecPtr);
-error_t vector_destroy(vector_t **vector);
+vector_error_t vector_init(vector_t **vector);
+vector_error_t vector_push(vector_t *vecPtr,int value);
+vector_error_t vector_pushfront(vector_t *vecPtr,int value);
+vector_error_t vector_erase(vector_t *vecPtr,int value);
+vector_error_t vector_erasefront(vector_t *vecPtr);
+vector_error_t vector_print(vector_t *vecPtr);
+vector_error_t vector_destroy(vector_t **vector);
 
 #endif
