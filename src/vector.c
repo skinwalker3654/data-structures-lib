@@ -17,7 +17,7 @@ vector_error_t vector_init(vector_t **vecPtr) {
     (*vecPtr)->counter = 0;
 
     (*vecPtr)->arrValues = malloc(sizeof(int)*(*vecPtr)->capacity);
-    if(!vecPtr) {
+    if(!(*vecPtr)->arrValues) {
         free(vecPtr);
         return VECTOR_MEMORY_FAILURE;
     }
