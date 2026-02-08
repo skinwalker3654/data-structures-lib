@@ -11,7 +11,7 @@
  *  error = any other ret code from the vector_error_t enum*/
 vector_error_t vector_init(vector_t **vecPtr) {
     *vecPtr = malloc(sizeof(vector_t));
-    if(!vecPtr) return VECTOR_MEMORY_FAILURE;
+    if(!*vecPtr) return VECTOR_MEMORY_FAILURE;
 
     (*vecPtr)->capacity = 2;
     (*vecPtr)->counter = 0;
