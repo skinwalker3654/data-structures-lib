@@ -4,21 +4,21 @@
 
 /*This function initializes the given vector
  *
- * @vector -> pointer into the given vector that the function will initialize
+ * @vecPtr -> pointer to the given vector that the function will initialize
  * 
  * RETVALUES:
  *  success = VECTOR_OK
  *  error = any other ret code from the vector_error_t enum*/
-vector_error_t vector_init(vector_t **vector) {
-    *vector = malloc(sizeof(vector_t));
-    if(!vector) return VECTOR_MEMORY_FAILURE;
+vector_error_t vector_init(vector_t **vecPtr) {
+    *vecPtr = malloc(sizeof(vector_t));
+    if(!vecPtr) return VECTOR_MEMORY_FAILURE;
 
-    (*vector)->capacity = 2;
-    (*vector)->counter = 0;
+    (*vecPtr)->capacity = 2;
+    (*vecPtr)->counter = 0;
 
-    (*vector)->arrValues = malloc(sizeof(int)*(*vector)->capacity);
-    if(!vector) {
-        free(vector);
+    (*vecPtr)->arrValues = malloc(sizeof(int)*(*vecPtr)->capacity);
+    if(!vecPtr) {
+        free(vecPtr);
         return VECTOR_MEMORY_FAILURE;
     }
 
@@ -65,6 +65,12 @@ vector_error_t vector_pushfront(vector_t *vecPtr, int value) {
         if(!tempArr) return VECTOR_MEMORY_FAILURE;
 
         vecPtr->arrValues = tempArr;
+    }
+
+    if(vecPtr->counter == 0) {
+        vecPtr->arrValues[0] = value;
+        vecPtr->counter++;
+        return VECTOR_OK;
     }
 
     for(int i=vecPtr->counter; i>0; i--)
@@ -149,7 +155,7 @@ vector_error_t vector_print(vector_t *vecPtr) {
 
 /*This function releashes the taken memory for a vector back to the system
  *
- * @vector -> pointer to the vector that the function should free
+ * @vecPtr -> pointer to the given vector that the function should free
  *
  * NOTE:
  *  make sure to always free the vector at the end 
@@ -158,16 +164,16 @@ vector_error_t vector_print(vector_t *vecPtr) {
  * RETVALUES:
  *  success = VECTOR_OK
  *  error = any other ret code on from the vector_error_t enum*/
-vector_error_t vector_destroy(vector_t **vector) {
-    if(!*vector) return VECTOR_NO_MEMORY;
-    if((*vector)->counter == 0) {
-        free(*vector);
+vector_error_t vector_destroy(vector_t **vecPtr) {
+    if(!*vecPtr) return VECTOR_NO_MEMORY;
+    if((*vecPtr)->counter == 0) {
+        free(*vecPtr);
         return VECTOR_OK;
     }
 
-    free((*vector)->arrValues);
-    (*vector)->arrValues = NULL;
+    free((*vecPtr)->arrValues);
+    (*vecPtr)->arrValues = NULL;
 
-    free(*vector);
+    free(*vecPtr);
     return VECTOR_OK;
 }

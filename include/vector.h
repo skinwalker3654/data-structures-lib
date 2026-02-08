@@ -39,12 +39,12 @@ typedef enum vector_error_t {
 /*+===================================================+/
  *+ OPERATIONS
  *+==================================================+*/
-vector_error_t vector_init(vector_t **vector);
+vector_error_t vector_init(vector_t **vecPtr);
 vector_error_t vector_push(vector_t *vecPtr,int value);
 vector_error_t vector_pushfront(vector_t *vecPtr,int value);
 vector_error_t vector_erase(vector_t *vecPtr,int value);
 vector_error_t vector_erasefront(vector_t *vecPtr);
 vector_error_t vector_print(vector_t *vecPtr);
-vector_error_t vector_destroy(vector_t **vector);
+vector_error_t vector_destroy(vector_t **vecPtr);
 
 #endif

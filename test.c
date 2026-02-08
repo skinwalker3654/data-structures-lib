@@ -3,7 +3,7 @@
 #include "include/vector.h"
 
 int main(void) {
-    error_t error;
+    vector_error_t error;
     vector_t *vector = NULL;
 
     error = vector_init(&vector);
