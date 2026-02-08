@@ -165,15 +165,13 @@ vector_error_t vector_print(vector_t *vecPtr) {
  *  success = VECTOR_OK
  *  error = any other ret code on from the vector_error_t enum*/
 vector_error_t vector_destroy(vector_t **vecPtr) {
-    if(!*vecPtr) return VECTOR_NO_MEMORY;
-    if((*vecPtr)->counter == 0) {
-        free(*vecPtr);
-        return VECTOR_OK;
-    }
+    if(!vecPtr || !*vecPtr) return VECTOR_NO_MEMORY;
 
     free((*vecPtr)->arrValues);
     (*vecPtr)->arrValues = NULL;
 
     free(*vecPtr);
+    *vecPtr = NULL;
+
     return VECTOR_OK;
 }
