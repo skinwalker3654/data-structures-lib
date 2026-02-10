@@ -7,14 +7,14 @@
  * structures and has many operations on that 
  * data structure.*/
 
-/*The structure of the vector
+/* The structure of the vector
  *
  * @arrValues -> An array of integers
  * @capacity -> An integer that contains the total integer size of the @arrValues
  * @counter -> An intger that holds the current slot that a value should be placed on
  *
  * NOTE:
- *  the @arrValues holds a size of 2 integers at first and whenever the counter
+ *  the @arrValues holds the size of 2 integers at first and whenever the counter
  *  increases by push values IF the @counter is >= @capacity then the capacity doubles its size
  *  and we reallocate more memory for the @arrValues*/
 
@@ -24,7 +24,7 @@ typedef struct vector_t {
     int counter;
 } vector_t;
 
-/*Returning error_codes
+/* Returning error_codes
  *
  * This enum contains every returing code that operations return 
  * after their call*/

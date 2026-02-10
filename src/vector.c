@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/*This function initializes the given vector
+/* This function initializes the given vector
  *
  * @vecPtr -> pointer to the given vector that the function will initialize
  * 
@@ -25,7 +25,7 @@ vector_error_t vector_init(vector_t **vecPtr) {
     return VECTOR_OK;
 }
 
-/*This function pushes a value at the end of the given vector
+/* This function pushes a value at the end of the given vector
  *
  * @vecPtr -> pointer to the vector that we gonna push the value
  * @value -> The value that is going to get pushed at the end of the vector
@@ -49,7 +49,7 @@ vector_error_t vector_push(vector_t *vecPtr, int value) {
     return VECTOR_OK;
 }
 
-/*This function pushes a value at the start of the given vector
+/* This function pushes a value at the start of the given vector
  *
  * @vecPtr -> pointer to the vector that we gonna push the value
  * @value -> The value that is going to get pushed at the start of the vector
@@ -82,7 +82,7 @@ vector_error_t vector_pushfront(vector_t *vecPtr, int value) {
     return VECTOR_OK;
 }
 
-/*This function removes the first number that is equal to the given value, from the vector
+/* This function removes the first number that is equal to the given value, from the vector
  *
  * @vecPtr -> pointer to the vector that the function will remove the value
  * @value -> the value that is going to be deleted
@@ -111,7 +111,7 @@ vector_error_t vector_erase(vector_t *vecPtr, int value) {
     return VECTOR_OK;
 }
 
-/*This function removes the first number from the vector
+/* This function removes the first number from the vector
  *
  * @vecPtr -> pointer to the vector that the function will remove the value
  *
@@ -129,7 +129,7 @@ vector_error_t vector_erasefront(vector_t *vecPtr) {
     return VECTOR_OK;
 }
 
-/*This function prints every value inside the given vector
+/* This function prints every value inside the given vector
  *
  * @vecptr -> pointer to the vector that the function should print its values
  *
@@ -153,7 +153,7 @@ vector_error_t vector_print(vector_t *vecPtr) {
     return VECTOR_OK;
 }
 
-/*This function releashes the taken memory for a vector back to the system
+/* This function releashes the taken memory for a vector back to the system
  *
  * @vecPtr -> pointer to the given vector that the function should free
  *
