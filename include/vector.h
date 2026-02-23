@@ -26,7 +26,7 @@ typedef struct vector_t {
 
 /* Returning error_codes
  *
- * This enum contains every returing code that operations return 
+ * This enum contains every returing code that the operations return 
  * after their call*/
 typedef enum vector_error_t {
     VECTOR_MEMORY_FAILURE,    

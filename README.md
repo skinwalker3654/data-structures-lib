@@ -5,11 +5,13 @@ A simple C data-structures library
 
 ## Features
 - vectors: push, pushfront, erase, erasefront, print, destroy.
+- linked_list: appendend, appendfront, remove, removefront print, destroy
 ---
 
 ### run test:
 ```bash
-make test
+make testvector
+make testlinkedlist
 ```
 ### when you want to delete the executables:
 ```bash

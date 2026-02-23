@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
-#include "include/vector.h"
+#include "../include/vector.h"
 
 int main(void) {
     vector_error_t error;
@@ -14,14 +14,14 @@ int main(void) {
 
     /* You can make the program safer by using error = FUNCTION and then If Else for every edge case
      * But its not really nessacery now. */
-    printf("Test 1. Push values (10,20,30) into the vector...\n");
+    printf("Test 1. Push the values (10,20,30) into the vector...\n");
     vector_push(vector,10);
     vector_push(vector,20);
     vector_push(vector,30);
     printf("Test 1. passed\n\n");
     sleep(2);
 
-    printf("Test 2. Pushfront value (5) into the vector...\n");
+    printf("Test 2. Pushfront the  value (5) into the vector...\n");
     vector_pushfront(vector,5);
     printf("Test 2. passed\n\n");
     sleep(2);
@@ -31,12 +31,12 @@ int main(void) {
     printf("Test 3. passed\n\n");
     sleep(2);
 
-    printf("Test 4. Remove value (10) from the vector...\n");
+    printf("Test 4. Remove the  value (10) from the vector...\n");
     vector_erase(vector,10);
     printf("Test 4. passed\n\n");
     sleep(2);
 
-    printf("Test 5. Remove first value from the vector...\n");
+    printf("Test 5. Remove the first value from the vector...\n");
     vector_erasefront(vector);
     printf("Test 5. passed\n\n");
     sleep(2);
@@ -48,7 +48,7 @@ int main(void) {
 
     printf("Destroying the vector...\n");
     vector_destroy(&vector);
-    printf("Program ended succesfully\n");
+    printf("Program has been ended succesfully\n");
 
     return 0;
 }

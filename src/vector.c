@@ -25,7 +25,7 @@ vector_error_t vector_init(vector_t **vecPtr) {
     return VECTOR_OK;
 }
 
-/* This function pushes a value at the end of the given vector
+/* This function pushes the given value at the end of the given vector
  *
  * @vecPtr -> pointer to the vector that we gonna push the value
  * @value -> The value that is going to get pushed at the end of the vector
@@ -49,7 +49,7 @@ vector_error_t vector_push(vector_t *vecPtr, int value) {
     return VECTOR_OK;
 }
 
-/* This function pushes a value at the start of the given vector
+/* This function pushes the given value at the start of the given vector
  *
  * @vecPtr -> pointer to the vector that we gonna push the value
  * @value -> The value that is going to get pushed at the start of the vector
@@ -121,6 +121,11 @@ vector_error_t vector_erase(vector_t *vecPtr, int value) {
 vector_error_t vector_erasefront(vector_t *vecPtr) {
     if(!vecPtr) return VECTOR_NO_MEMORY;
     if(vecPtr->counter == 0) return VECTOR_EMPTY;
+
+    if(vecPtr->counter == 1) {
+        vecPtr->counter--;
+        return VECTOR_OK;
+    }
 
     for(int i=0; i<vecPtr->counter-1; i++)
         vecPtr->arrValues[i] = vecPtr->arrValues[i+1];

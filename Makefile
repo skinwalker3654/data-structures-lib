@@ -1,14 +1,23 @@
-SRC = test.c src/vector.c
+SRCV = test/vectortest.c src/vector.c
+SRCL = test/linkedlisttest.c src/linked_list.c
+TARGET1 = testvector
+TARGET2 = testlinkedlist
 CC = gcc
-TARGET =  test
 
+testvector: $(SRCV)
+	@echo "compiling the vector test..."
+	$(CC) $^ -o $(TARGET1)
+	@echo "executing the vector test..."
+	./$(TARGET1)
 
-test: $(SRC)
-	@echo "compiling the test..."
-	$(CC) $^ -o $(TARGET)
-	@echo "executing the test..."
-	./$(TARGET)
+testlinkedlist: $(SRCL)
+	@echo "compiling the linkedlist test..."
+	$(CC) $^ -o $(TARGET2)
+	@echo "executing the linkedlist test..."
+	./$(TARGET2)
 
 clean:
 	@echo "deleting test executable..."
-	rm -rf $(TARGET)
+	rm -rf $(TARGET1) $(TARGET2)
+
+.PHONY: clean testvector testlinkedlist
